@@ -377,6 +377,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-nav__link">
+      Command Undo/Redo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../chain_of_responsibility/" title="Chain of Responsibility" class="md-nav__link">
       Chain of Responsibility
     </a>
@@ -397,9 +409,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Observer
+      </label>
+    
     <a href="./" title="Observer" class="md-nav__link md-nav__link--active">
       Observer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observerpy" class="md-nav__link">
+    observer.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -450,6 +518,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observerpy" class="md-nav__link">
+    observer.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -462,8 +573,77 @@
                 
                 
                 <h1 id="observer-pattern">Observer Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Observer Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16397486/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Observer Design Pattern">Observer Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>The observer pattern is a software design pattern in which an object, called the subject or observable, manages a list of dependents, called observers, and notifies them automatically of any internal state changes, and calls one of their methods. </p>
 <p><img alt="Observer Pattern" src="../observer.png" /></p>
+<h2 id="source-code">Source Code</h2>
+<h3 id="observerpy"><strong><code>observer.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Observer Design Pattern</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+
+<span class="k">class</span> <span class="nc">IObservable</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The subscribe method&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The unsubscribe method&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The notify method&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Subject</span><span class="p">(</span><span class="n">IObservable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="p">:</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">IObserver</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="n">observable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Receive notifications&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Observer</span><span class="p">(</span><span class="n">IObserver</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observable</span><span class="p">):</span>
+        <span class="n">observable</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Observer received&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="n">SUBJECT</span> <span class="o">=</span> <span class="n">Subject</span><span class="p">()</span>
+<span class="n">OBSERVERA</span> <span class="o">=</span> <span class="n">Observer</span><span class="p">(</span><span class="n">SUBJECT</span><span class="p">)</span>
+<span class="n">OBSERVERB</span> <span class="o">=</span> <span class="n">Observer</span><span class="p">(</span><span class="n">SUBJECT</span><span class="p">)</span>
+
+<span class="n">SUBJECT</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s2">&quot;Hello Observers&quot;</span><span class="p">)</span>
+
+<span class="n">SUBJECT</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">OBSERVERB</span><span class="p">)</span>
+<span class="n">SUBJECT</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s2">&quot;Hello Observers&quot;</span><span class="p">)</span>
+</pre></div>
                 
                   
                 

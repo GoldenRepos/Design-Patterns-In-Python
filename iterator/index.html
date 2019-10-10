@@ -377,6 +377,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-nav__link">
+      Command Undo/Redo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../chain_of_responsibility/" title="Chain of Responsibility" class="md-nav__link">
       Chain of Responsibility
     </a>
@@ -409,9 +421,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Iterator
+      </label>
+    
     <a href="./" title="Iterator" class="md-nav__link md-nav__link--active">
       Iterator
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iteratorpy" class="md-nav__link">
+    iterator.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -450,6 +518,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iteratorpy" class="md-nav__link">
+    iterator.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -462,11 +573,61 @@
                 
                 
                 <h1 id="iterator-design-pattern">Iterator Design Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Iterator Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16510272/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Iterator Design Pattern">Iterator Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>An interface with <strong>next</strong> and <strong>has_next</strong> methods.</p>
 <p><strong>next</strong> returns the next object in the aggregate(collection, list)</p>
 <p><strong>has_next</strong> returns a value, usually a boolean indicating if the iterable is at the end of the list or not.</p>
 <p>The benefits of using the Iterator pattern is that the client, can traverse an aggregate without needing to understand it's internal representation and data structures.</p>
 <p><img alt="Iterator Pattern UML Diagram" src="../iterator.png" /></p>
+<h2 id="source-code">Source Code</h2>
+<h3 id="iteratorpy"><strong><code>iterator.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">IIterator</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">has_next</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Returns Boolean whether at end of collection or not&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Return the object in collection&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Iterable</span><span class="p">(</span><span class="n">IIterator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum</span> <span class="o">=</span> <span class="mi">7</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximum</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">x</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;AtEndOfIteratorException&quot;</span><span class="p">,</span> <span class="s2">&quot;At End of Iterator&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">has_next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximum</span>
+
+<span class="n">ITERABLE</span> <span class="o">=</span> <span class="n">Iterable</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="n">ITERABLE</span><span class="o">.</span><span class="n">has_next</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ITERABLE</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+
+
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+<span class="c1"># print(ITERABLE.next())</span>
+</pre></div>
                 
                   
                 

@@ -375,6 +375,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-nav__link">
+      Command Undo/Redo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -404,23 +416,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#chain-of-responsibility-diagram" class="md-nav__link">
     Chain of Responsibility Diagram
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#chain-of-responsibility-uml-diagram-in-the-context-of-an-atm" class="md-nav__link">
     Chain of Responsibility UML Diagram in the context of an ATM
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#output" class="md-nav__link">
     Output
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atmpy" class="md-nav__link">
+    atm.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -497,23 +549,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#chain-of-responsibility-diagram" class="md-nav__link">
     Chain of Responsibility Diagram
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#chain-of-responsibility-uml-diagram-in-the-context-of-an-atm" class="md-nav__link">
     Chain of Responsibility UML Diagram in the context of an ATM
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#output" class="md-nav__link">
     Output
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atmpy" class="md-nav__link">
+    atm.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -535,14 +627,18 @@
                 
                 
                 <h1 id="chain-of-responsibility-design-pattern">Chain of Responsibility Design Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Chain of Responsibility Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16397342/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Chain of Responsibility Design Pattern">Chain of Responsibility Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>Chain of responsibility pattern is a behavioural pattern used to achieve loose coupling
 in software design.
 In this example, a request from a client is passed to a chain of objects to process them.
 The objects in the chain will decide how to process them and/or pass them to the next in the chain.
 The objects can also modify the next in the chain if for example you wanted to run objects in a recursive manner.</p>
-<h2 id="chain-of-responsibility-diagram">Chain of Responsibility Diagram</h2>
+<h3 id="chain-of-responsibility-diagram">Chain of Responsibility Diagram</h3>
 <p><img alt="Chain of Responsibility UML Diagram" src="../chain_of_responsibility.png" /></p>
-<h2 id="chain-of-responsibility-uml-diagram-in-the-context-of-an-atm">Chain of Responsibility UML Diagram in the context of an ATM</h2>
+<h3 id="chain-of-responsibility-uml-diagram-in-the-context-of-an-atm">Chain of Responsibility UML Diagram in the context of an ATM</h3>
 <p><img alt="Chain of Responsibility UML Diagram in the context of an ATM" src="../atm.png" /></p>
 <p>In the ATM example, the chain is created to dispense an amount of £50, then £20s and then £10s in order.
 The successor chain is hard coded in the chain client. </p>
@@ -562,7 +658,7 @@ The successor chain is hard coded in the chain client. </p>
 
 
 <p>You also have the option to set the next successor on logic at handle time.</p>
-<h2 id="output">Output</h2>
+<h3 id="output">Output</h3>
 <div class="codehilite"><pre><span></span>$ python atm.py
 Enter amount to withdrawal
 <span class="m">130</span>
@@ -570,6 +666,127 @@ Dispensing <span class="m">2</span> £50 note
 Dispensing <span class="m">1</span> £20 note
 Dispensing <span class="m">1</span> £10 note
 Go spoil yourself
+</pre></div>
+
+
+<h2 id="source-code">Source Code</h2>
+<h3 id="atmpy"><strong><code>atm.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractstaticmethod</span>
+
+
+<span class="k">class</span> <span class="nc">IHandler</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="nd">@abstractstaticmethod</span>
+    <span class="k">def</span> <span class="nf">set_successor</span><span class="p">(</span><span class="n">successor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the next handler in the chain&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractstaticmethod</span>
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handle the event&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Dispenser50</span><span class="p">(</span><span class="n">IHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ConcreteHandler</span>
+<span class="sd">    Dispense £50 notes if applicable,</span>
+<span class="sd">    otherwise continue to successor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">set_successor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">successor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the successor&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="n">successor</span>
+
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handle the dispensing of notes&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">//</span> <span class="mi">50</span>
+            <span class="n">remainder</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">%</span> <span class="mi">50</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dispensing {num} £50 note&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">remainder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Dispenser20</span><span class="p">(</span><span class="n">IHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ConcreteHandler</span>
+<span class="sd">    Dispense £20 notes if applicable,</span>
+<span class="sd">    otherwise continue to successor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">set_successor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">successor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the successor&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="n">successor</span>
+
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handle the dispensing of notes&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">//</span> <span class="mi">20</span>
+            <span class="n">remainder</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">%</span> <span class="mi">20</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dispensing {num} £20 note&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">remainder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Dispenser10</span><span class="p">(</span><span class="n">IHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ConcreteHandler</span>
+<span class="sd">    Dispense £10 notes if applicable,</span>
+<span class="sd">    otherwise continue to successor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">set_successor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">successor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the successor&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span> <span class="o">=</span> <span class="n">successor</span>
+
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handle the dispensing of notes&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">//</span> <span class="mi">10</span>
+            <span class="n">remainder</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">%</span> <span class="mi">10</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dispensing {num} £10 note&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">remainder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_successor</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ATMDispenserChain</span><span class="p">:</span> <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="sd">&quot;&quot;&quot;The Chain Client&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># initialize the successor chain</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain1</span> <span class="o">=</span> <span class="n">Dispenser50</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain2</span> <span class="o">=</span> <span class="n">Dispenser20</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain3</span> <span class="o">=</span> <span class="n">Dispenser10</span><span class="p">()</span>
+
+        <span class="c1"># set the chain of responsibility</span>
+        <span class="c1"># The Client may compose chains once or</span>
+        <span class="c1"># the hadler can set them dynamically at</span>
+        <span class="c1"># handle time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain1</span><span class="o">.</span><span class="n">set_successor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain2</span><span class="o">.</span><span class="n">set_successor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain3</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">ATM</span> <span class="o">=</span> <span class="n">ATMDispenserChain</span><span class="p">()</span>
+
+    <span class="n">AMOUNT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter amount to withdrawal : &quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">AMOUNT</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">AMOUNT</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Amount should be positive and in multiple of 10s.&quot;</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">()</span>
+    <span class="c1"># process the request</span>
+    <span class="n">ATM</span><span class="o">.</span><span class="n">chain1</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Now go spoil yourself&quot;</span><span class="p">)</span>
 </pre></div>
                 
                   
@@ -591,7 +808,7 @@ Go spoil yourself
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../command/" title="Command" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -600,7 +817,7 @@ Go spoil yourself
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Command
+                Command Undo/Redo
               </span>
             </div>
           </a>

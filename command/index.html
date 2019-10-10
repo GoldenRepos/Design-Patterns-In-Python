@@ -373,10 +373,78 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Command
+      </label>
+    
     <a href="./" title="Command" class="md-nav__link md-nav__link--active">
       Command
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#switch_commandpy" class="md-nav__link">
+    switch_command.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-nav__link">
+      Command Undo/Redo
+    </a>
   </li>
 
         
@@ -450,6 +518,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#switch_commandpy" class="md-nav__link">
+    switch_command.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -462,32 +573,128 @@
                 
                 
                 <h1 id="command-design-pattern">Command Design Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Command Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16397092/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Command Design Pattern">Command Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>The command pattern is a behavioural design pattern, in which an abstraction exists between an object that invokes a command, and the object that performs it.</p>
-<p>The components if the Command Design Pattern are,
-1. <strong>Receiver</strong> - The Object that will receive and execute the command
-2. <strong>Invoker</strong> - Which will send the command to the receiver
-3. <strong>Command Object</strong> - Itself, which implements an execute, or action method, and contains all required information to execute it
-4. <strong>Client</strong> - The application or component which is aware of the Receiver, Invoker and Commands</p>
+<p>The components of the Command Design Pattern are,</p>
+<ul>
+<li><strong>Receiver</strong> : The Object that will receive and execute the command</li>
+<li><strong>Invoker</strong> : Which will send the command to the receiver</li>
+<li><strong>Command Object</strong> : Itself, which implements an execute, or action method, and contains all required information to execute it</li>
+<li><strong>Client</strong> : The application or component which is aware of the Receiver, Invoker and Commands</li>
+</ul>
 <p>Eg, a button, will call the Invoker, which will call a pre registered Commands execute method, which the Receiver will perform.</p>
 <p>A Concrete Class will delegate a request to a command object, instead of implementing the request directly.
 Using a command design pattern allows you to separate concerns a little easier and to solve problems of the concerns independently of each of the layers.
 eg, logging the execution of a command and it's outcome.</p>
-<p>Uses:
-GUI Buttons, menus
-Macro recording
-Multi level undo/redo
-networking - send whole command objects across a network, even as a batch
-parallel processing or thread pools,
-transactional behaviour
-Wizards</p>
+<p>Uses:</p>
+<ul>
+<li>GUI Buttons, menus</li>
+<li>Macro recording</li>
+<li>Multi level undo/redo</li>
+<li>Networking - send whole command objects across a network, even as a batch</li>
+<li>Parallel processing or thread pools</li>
+<li>Transactional behaviour</li>
+<li>Wizards</li>
+</ul>
 <p>Notes:
 The receiver object should manages it's own state, not the command object
 There can be one or more invokers which can execute the command at a later date.</p>
 <p><img alt="The Command Pattern Overview" src="../command_pattern.png" /></p>
 <p>The Command Pattern in the context of a light switch</p>
 <p><img alt="The Command Pattern Switch" src="../switch_command_pattern.png" /></p>
-<p>The Command Pattern in the context of a slider for a heater, which also implements UNDO/REDO</p>
-<p><img alt="The Command Pattern Slider" src="../slider_command.png" /></p>
+<h2 id="source-code">Source Code</h2>
+<h3 id="switch_commandpy"><strong><code>switch_command.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractstaticmethod</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">class</span> <span class="nc">ICommand</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The command interface, which all commands will implement&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractstaticmethod</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;The required execute method which all command objects will use&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Switch</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The Invoker Class&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_history</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_history</span>
+
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command_name</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="p">[</span><span class="n">command_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">command_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">command_name</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="p">[</span><span class="n">command_name</span><span class="p">]</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Command [{command_name}] not recognised&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Light</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The Receiver&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Light turned ON&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">turn_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Light turned OFF&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SwitchOnCommand</span><span class="p">(</span><span class="n">ICommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A Command object, which implements the ICommand interface&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_light</span> <span class="o">=</span> <span class="n">light</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">SwitchOffCommand</span><span class="p">(</span><span class="n">ICommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A Command object, which implements the ICommand interface&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_light</span> <span class="o">=</span> <span class="n">light</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">turn_off</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># The Client is the main python app</span>
+
+    <span class="c1"># The Light is the Receiver</span>
+    <span class="n">LIGHT</span> <span class="o">=</span> <span class="n">Light</span><span class="p">()</span>
+
+    <span class="c1"># Create Commands</span>
+    <span class="n">SWITCH_ON</span> <span class="o">=</span> <span class="n">SwitchOnCommand</span><span class="p">(</span><span class="n">LIGHT</span><span class="p">)</span>
+    <span class="n">SWITCH_OFF</span> <span class="o">=</span> <span class="n">SwitchOffCommand</span><span class="p">(</span><span class="n">LIGHT</span><span class="p">)</span>
+
+    <span class="c1"># Register the commands with the invoker (Switch)</span>
+    <span class="n">SWITCH</span> <span class="o">=</span> <span class="n">Switch</span><span class="p">()</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">,</span> <span class="n">SWITCH_ON</span><span class="p">)</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">,</span> <span class="n">SWITCH_OFF</span><span class="p">)</span>
+
+    <span class="c1"># Execute the commands that are registered on the Invoker</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">)</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">)</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">)</span>
+    <span class="n">SWITCH</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">)</span>
+
+    <span class="c1"># For fun, we can see the history</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">SWITCH</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
                 
                   
                 
@@ -523,13 +730,13 @@ There can be one or more invokers which can execute the command at a later date.
           </a>
         
         
-          <a href="../chain_of_responsibility/" title="Chain of Responsibility" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../command_undo_redo/" title="Command Undo/Redo" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chain of Responsibility
+                Command Undo/Redo
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
