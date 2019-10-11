@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
@@ -280,9 +280,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Composite
+      </label>
+    
     <a href="./" title="Composite" class="md-nav__link md-nav__link--active">
       Composite
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compositepy" class="md-nav__link">
+    composite.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -388,6 +444,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compositepy" class="md-nav__link">
+    composite.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -400,6 +499,10 @@
                 
                 
                 <h1 id="composite-design-pattern">Composite Design Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Composite Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16511234/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Composite Design Pattern">Composite Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>The Composite design pattern,
 - allows you to represent individual entities and groups of entities in the same manner.
 - is a structural design pattern that lets you compose objects into a tree.
@@ -409,6 +512,51 @@
 - conform to the Single Responsibility Principle in the way that it separates the aggregation of objects from the features of the object.</p>
 <p>Examples of using the Composite Design Pattern can be seen in a filesystem directory structure, where you can swap the hierarchy of folders, and in a drawing program where you can group, un-group and transform objects, and multiple objects at the same time.</p>
 <p><img alt="Composite Pattern UML Diagram" src="../composite.png" /></p>
+<h2 id="source-code">Source Code</h2>
+<h3 id="compositepy"><strong><code>composite.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">IGraphic</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">print</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;print information&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Ellipse</span><span class="p">(</span><span class="n">IGraphic</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ellipse&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="n">IGraphic</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Circle&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">CompositeGraphic</span><span class="p">(</span><span class="n">IGraphic</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_graphics</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graphic</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_graphics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graphic</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_graphics</span><span class="p">:</span>
+            <span class="n">g</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+
+
+<span class="n">ELLIPSE1</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">()</span>
+<span class="n">CIRCLE1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">()</span>
+
+<span class="n">COMPOSITE1</span> <span class="o">=</span> <span class="n">CompositeGraphic</span><span class="p">()</span>
+<span class="n">COMPOSITE1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ELLIPSE1</span><span class="p">)</span>
+
+<span class="n">COMPOSITE2</span> <span class="o">=</span> <span class="n">CompositeGraphic</span><span class="p">()</span>
+<span class="n">COMPOSITE2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">CIRCLE1</span><span class="p">)</span>
+<span class="n">COMPOSITE2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">COMPOSITE1</span><span class="p">)</span>
+
+<span class="n">COMPOSITE2</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># ELLIPSE1.print()</span>
+<span class="c1"># CIRCLE1.print()</span>
+</pre></div>
                 
                   
                 
@@ -482,7 +630,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       

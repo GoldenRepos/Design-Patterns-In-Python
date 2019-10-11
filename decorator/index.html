@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
@@ -241,6 +241,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Decorator
@@ -254,14 +256,43 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#decorator-design-pattern" class="md-nav__link">
-    Decorator Design Pattern
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decoratorpy" class="md-nav__link">
+    decorator.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -410,14 +441,43 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#decorator-design-pattern" class="md-nav__link">
-    Decorator Design Pattern
+  <a href="#video-lecture" class="md-nav__link">
+    Video Lecture
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decoratorpy" class="md-nav__link">
+    decorator.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -438,14 +498,50 @@
               
                 
                 
-                  <h1>Decorator</h1>
-                
-                <h2 id="decorator-design-pattern">Decorator Design Pattern</h2>
+                <h1 id="decorator-design-pattern">Decorator Design Pattern</h1>
+<h2 id="video-lecture">Video Lecture</h2>
+<p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Decorator Design Pattern">https://skl.sh/34SM2Xg</a></p>
+<p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16397502/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Decorator Design Pattern">Decorator Design Pattern</a></p>
+<h2 id="description">Description</h2>
 <p>The decorator pattern is a structural pattern, that allows you to attach additional responsibilities to an object at run time.</p>
 <p>The decorator pattern is used in both the Object Oriented and Functional paradigms.</p>
 <p>The decorator pattern is different than the Python language feature of Python Decorators in it's syntax, but the application of it is the same, in the way that it is essentially a wrapper.</p>
 <p>The Decorator pattern adds extensibility, without modifying the original function.</p>
 <p><img alt="Decorator Pattern UML Diagram" src="../decorator.png" /></p>
+<h2 id="source-code">Source Code</h2>
+<h3 id="decoratorpy"><strong><code>decorator.py</code></strong></h3>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UndecoratedObject</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;UndecoratedObject&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Decorate</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">undecorated</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">undecorated</span> <span class="o">=</span> <span class="n">undecorated</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">undecorated</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Undecorated&quot;</span><span class="p">,</span> <span class="s2">&quot;Decorated&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># class DecorateWithANewMethod:</span>
+<span class="c1">#     def __init__(self, undecorated):</span>
+<span class="c1">#         self.undecorated = undecorated</span>
+
+<span class="c1">#     def get(self):</span>
+<span class="c1">#         return self.undecorated.get()</span>
+
+<span class="c1">#     def draw(self):</span>
+<span class="c1">#         print(self.undecorated.get())</span>
+
+
+<span class="n">UNDECORATED</span> <span class="o">=</span> <span class="n">UndecoratedObject</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">UNDECORATED</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="n">DECORATED</span> <span class="o">=</span> <span class="n">Decorate</span><span class="p">(</span><span class="n">UNDECORATED</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">DECORATED</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="c1">#DECORATEDWITHNEWMETHOD = DecorateWithANewMethod(DECORATED)</span>
+<span class="c1">#DECORATEDWITHNEWMETHOD.draw()</span>
+</pre></div>
                 
                   
                 
@@ -519,7 +615,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
