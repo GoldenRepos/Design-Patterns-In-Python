@@ -4,66 +4,68 @@
 
 <!doctype html>
 <html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-      
-      
-        <meta name="author" content="Sean Bradley">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
-    
-    
-      
-        <title>Facade - Design Patterns In Python</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application.82a18eb7.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.3e3d1dff.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546e7a">
-      
-    
-    
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
-    
-    
-      
-    
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
-    
-    
-      
-        
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+  
+  <meta name="author" content="Sean Bradley">
+  
+  
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  
+  <meta name="lang:search.language" content="en">
+  
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  
+  <meta name="lang:search.result.none" content="No matching documents">
+  
+  <meta name="lang:search.result.one" content="1 matching document">
+  
+  <meta name="lang:search.result.other" content="# matching documents">
+  
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+  
+  <link rel="shortcut icon" href="../assets/images/favicon.png">
+  <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+  
+  
+  
+  <title>Facade - Design Patterns In Python</title>
+  
+  
+  <link rel="stylesheet" href="../assets/stylesheets/consent.css">
+  
+  <link rel="stylesheet" href="../assets/stylesheets/application.82a18eb7.css">
+  
+  <link rel="stylesheet" href="../assets/stylesheets/application-palette.3e3d1dff.css">
+  
+  
+  
+  
+  <meta name="theme-color" content="#546e7a">
+  
+  
+  
+  <script src="../assets/javascripts/modernizr.74668098.js"></script>
+  
+  
+  
+  
+  <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+  
+  
+  
+  
+  
 <script>
   window.ga = window.ga || function() {
     (ga.q = ga.q || []).push(arguments)
@@ -87,14 +89,15 @@
   })
 </script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+  
+</head>
+
+
+
+
+<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
   
     <svg class="md-svg">
       <defs>
@@ -106,12 +109,12 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#facade-design-pattern" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
+    <a href="#facade-design-pattern" tabindex="1" class="md-skip">
+      Skip to content
+    </a>
     
     
-      <header class="md-header" data-md-component="header">
+    <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -173,17 +176,17 @@
     
     <div class="md-container">
       
-        
+      
       
       
       <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
+          
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="Design Patterns In Python" class="md-nav__button md-logo">
       
@@ -454,15 +457,15 @@
     
   </ul>
 </nav>
-                  </div>
-                </div>
               </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+            </div>
+          </div>
+          
+          
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
 <nav class="md-nav md-nav--secondary">
   
   
@@ -513,12 +516,12 @@
     </ul>
   
 </nav>
-                  </div>
-                </div>
-                <div class="md-sidebar__scrollwrap">&nbsp;</div>
-                <div class="md-sidebar__scrollwrap">
-                    <div class="md-sidebar__inner">
-                      
+              </div>
+            </div>
+            <div class="md-sidebar__scrollwrap">&nbsp;</div>
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
 <nav class="md-nav md-nav--secondary">
   <label class="md-nav__title" for="__toc">Other Tutorials</label>
   <ul class="md-nav__list" data-md-scrollfix>
@@ -535,19 +538,22 @@
       <a href="https://designpatterns.seanwasere.com/" class="md-nav__link md-nav__link--active">Design
         Patterns in Python</a>
     </li>
+    <li class="md-nav__item">
+      <a href="https://tssocktutorials.seanwasere.com/" class="md-nav__link md-nav__link--active">TypeScript SocketIO</a>
+    </li>
   </ul>
 </nav>
-                    </div>
-                  </div>
               </div>
-            
+            </div>
+          </div>
+          
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-                
-                
-                <h1 id="facade-design-pattern">Facade Design Pattern</h1>
+              
+              
+              <h1 id="facade-design-pattern">Facade Design Pattern</h1>
 <h2 id="video-lecture">Video Lecture</h2>
 <p>Skillshare : <a href="https://skl.sh/34SM2Xg" target="_blank" title="Facade Design Pattern">https://skl.sh/34SM2Xg</a></p>
 <p>Udemy : <a href="https://www.udemy.com/course/design-patterns-in-python/learn/lecture/16397504/?referralCode=7B677DD7A9580F2FFD8F" target="_blank" title="Facade Design Pattern">Facade Design Pattern</a></p>
@@ -594,12 +600,12 @@ It provides a simplified interface to a set of other interfaces, abstractions an
 <span class="n">RESULT</span> <span class="o">=</span> <span class="n">FACADE</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The Result = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">RESULT</span><span class="p">)</span>
 </pre></div>
-                
-                  
-                
               
               
-                
+              
+              
+              
+              
 
 
               
@@ -608,7 +614,7 @@ It provides a simplified interface to a set of other interfaces, abstractions an
         </div>
       </main>
       
-        
+      
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -667,10 +673,57 @@ It provides a simplified interface to a set of other interfaces, abstractions an
       
     </div>
     
-      <script src="../assets/javascripts/application.d151b584.js"></script>
-      
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
+    <script src="../assets/javascripts/application.d151b584.js"></script>
+    
+    <script>
+      app.initialize({
+        version: "1.0.4",
+        url: {
+          base: ".."
+        }
+      })
+
+    </script>
+    
+
+    <!-- <div id="cookies-eu-banner" style="display: none;">
+      By continuing to use this site, you accept the use of cookies for monitoring the usage of this site, and to help personalise the content.
+      by Google Analytics for statistical purposes.
+      <button id="cookies-eu-reject">Reject</button>
+      <button id="cookies-eu-accept">Accept</button>
+    </div> -->
+
+
+
+    <!-- <script src="../assets/javascripts/cookies-eu-banner.js"></script>
+    
+    <script>
+      new CookiesEuBanner(function () {
+        // Your code to launch when user accept cookies
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', "UA-147973042-3", "auto");
+        ga('send', 'pageview');
+      }, true);
+
+    </script> -->
+
     
   </body>
+
 </html>
+
+
+<script>
+
+</script>
